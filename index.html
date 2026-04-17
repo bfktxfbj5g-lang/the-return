@@ -4,8 +4,150 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Return</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #1a1a1a;
+      background: #fafaf8;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    main {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 4rem;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #555;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-size: 0.875rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      color: #888;
+      margin-bottom: 1.25rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .cta {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid #e0e0dc;
+    }
+
+    .cta p {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .cta form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 360px;
+    }
+
+    .cta input[type="email"] {
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #1a1a1a;
+      border-radius: 2px;
+      outline: none;
+    }
+
+    .cta input[type="email"]:focus {
+      border-color: #888;
+    }
+
+    .cta button {
+      font-family: inherit;
+      font-size: 0.9rem;
+      padding: 0.65rem 1rem;
+      background: transparent;
+      color: #1a1a1a;
+      border: 1px solid #bbb;
+      border-radius: 2px;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      align-self: flex-start;
+    }
+
+    .cta button:hover {
+      border-color: #777;
+    }
+  </style>
 </head>
 <body>
-  <h1>The Return</h1>
+  <main>
+
+    <header>
+      <h1>The Return</h1>
+      <p>A letter about quiet strength.</p>
+    </header>
+
+    <section>
+      <h2>Who it's for</h2>
+      <p>For people who have drifted a little from themselves — not dramatically, but enough to notice.</p>
+      <p>You are probably carrying real responsibilities. Work, relationships, decisions that matter. You are managing well enough. But somewhere in the middle of all of it, something has gone slightly off-center. The way you move through your days doesn't quite match what you know to be true.</p>
+      <p>This isn't about a crisis. It's about the quieter kind of drift that accumulates without announcement.</p>
+    </section>
+
+    <section>
+      <h2>What kind of email it is</h2>
+      <p>A short letter, sent most days — but never just for the sake of sending.</p>
+      <p>It does not offer frameworks or systems. It does not track your progress or ask anything of you.</p>
+      <p>It is closer to a note from someone thinking carefully about the same things you are.</p>
+    </section>
+
+    <section>
+      <h2>What you're returning to</h2>
+      <p>Not confidence. Not performance. Something quieter.</p>
+      <p>The sense of being in your own center. Moving through difficulty without losing yourself. Knowing what you actually think, and acting from it.</p>
+      <p>You have known it before. This letter is about returning to it.</p>
+    </section>
+
+    <div class="cta">
+      <p>If something here felt familiar, the letter is yours.</p>
+      <form>
+        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+        <button type="submit">Receive the letter</button>
+      </form>
+    </div>
+
+  </main>
 </body>
 </html>
