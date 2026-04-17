@@ -71,29 +71,7 @@
       color: #333;
     }
 
-    .cta form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      max-width: 360px;
-    }
-
-    .cta input[type="email"] {
-      font-family: inherit;
-      font-size: 1rem;
-      padding: 0.65rem 0.75rem;
-      border: 1px solid #ccc;
-      background: #fff;
-      color: #1a1a1a;
-      border-radius: 2px;
-      outline: none;
-    }
-
-    .cta input[type="email"]:focus {
-      border-color: #888;
-    }
-
-    .cta button {
+    .cta a {
       font-family: inherit;
       font-size: 0.9rem;
       padding: 0.65rem 1rem;
@@ -101,12 +79,12 @@
       color: #1a1a1a;
       border: 1px solid #bbb;
       border-radius: 2px;
-      cursor: pointer;
       letter-spacing: 0.03em;
-      align-self: flex-start;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    .cta button:hover {
+    .cta a:hover {
       border-color: #777;
     }
   </style>
@@ -142,10 +120,7 @@
 
     <div class="cta">
       <p>If something here felt familiar, the letter is yours.</p>
-      <form>
-        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
-        <button type="submit">Receive the letter</button>
-      </form>
+      <a href="https://forms.gle/D5mrb9GHGeVVXRoLA">Receive the letter</a>
     </div>
 
   </main>
