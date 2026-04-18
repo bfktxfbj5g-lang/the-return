@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiet Note 第2号｜整うと、動き出す</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── @page ─────────────────────────────────────── */
+    @page {
+      size: A4 portrait;
+      margin: 15mm 18mm;
+    }
+
+    /* ── Base ───────────────────────────────────────── */
+    html, body {
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
+      font-size: 11pt;
+      line-height: 1.85;
+      color: #1a1a1a;
+      background: #ffffff;
+    }
+
+    /* ── Page container ─────────────────────────────── */
+    /* 210mm - 2×18mm = 174mm usable width
+       297mm - 2×15mm = 267mm usable height */
+    .page {
+      width: 174mm;
+      min-height: 267mm;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      /* screen only: centre and show paper shadow */
+      margin: 0 auto;
+    }
+
+    /* ── Zone 1: Header ─────────────────────────────── */
+    .page-header {
+      padding-bottom: 4mm;
+    }
+
+    .label {
+      font-size: 8pt;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: normal;
+      margin-bottom: 2.5mm;
+      color: #1a1a1a;
+    }
+
+    .issue-title {
+      font-size: 15pt;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+      margin-bottom: 2mm;
+    }
+
+    .subheadline {
+      font-size: 10pt;
+      font-style: italic;
+      font-weight: normal;
+      color: #444;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Rules ──────────────────────────────────────── */
+    .rule {
+      border: none;
+      border-top: 0.5pt solid #1a1a1a;
+      margin: 0;
+    }
+
+    .rule--header {
+      margin-top: 4mm;
+      margin-bottom: 5.5mm;
+    }
+
+    .rule--body {
+      margin-top: 5.5mm;
+      margin-bottom: 5.5mm;
+    }
+
+    /* ── Zone 2: 2-column body text ─────────────────── */
+    .body-columns {
+      column-count: 2;
+      column-gap: 7mm;
+      column-fill: balance;
+      overflow: hidden;
+      flex: 1 0 auto;
+    }
+
+    .body-columns p {
+      font-size: 11pt;
+      line-height: 1.85;
+      margin-bottom: 3mm;
+      widows: 2;
+      orphans: 2;
+    }
+
+    .body-columns p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Zone 3: Lower 2-block row ──────────────────── */
+    .lower-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 7mm;
+      align-items: start;
+    }
+
+    .lower-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .block-label {
+      font-size: 9pt;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+      margin-bottom: 3mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 0.5pt solid #1a1a1a;
+    }
+
+    /* Habits list */
+    .habit-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .habit-list li {
+      font-size: 10.5pt;
+      line-height: 1.7;
+      margin-bottom: 3mm;
+    }
+
+    .habit-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .habit-num {
+      font-size: 10.5pt;
+    }
+
+    .habit-title {
+      font-weight: bold;
+    }
+
+    .habit-desc {
+      display: block;
+      font-size: 9.5pt;
+      color: #555;
+      padding-left: 2em;
+      margin-top: 0.3mm;
+    }
+
+    /* Guidance block */
+    .guidance-text {
+      font-size: 10.5pt;
+      line-height: 1.85;
+      margin-bottom: 2.5mm;
+    }
+
+    .guidance-text:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* Logo area — pushed to bottom-right */
+    .lower-block--guidance {
+      min-height: 55mm;
+    }
+
+    .logo-area {
+      margin-top: auto;
+      padding-top: 5mm;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .logo-img {
+      width: 28mm;
+      height: auto;
+      display: block;
+      /* Faint border shows reserved space when no image is present */
+      min-height: 14mm;
+      border: 0.5pt solid #ccc;
+    }
+
+    .logo-img[src=""] ,
+    .logo-img:not([src]) {
+      border: 0.5pt solid #ccc;
+    }
+
+    /* ── Screen-only: paper presentation ────────────── */
+    @media screen {
+      body {
+        background: #e8e8e4;
+        padding: 20mm 0;
+      }
+
+      .page {
+        background: #ffffff;
+        padding: 15mm 18mm;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+      }
+    }
+
+    /* ── Print ───────────────────────────────────────── */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html, body {
+        background: #ffffff;
+        padding: 0;
+        margin: 0;
+      }
+
+      .page {
+        width: 174mm;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .body-columns {
+        line-height: 1.8;
+      }
+
+      .page-header {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .lower-block {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .habit-list li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .lower-row {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+
+    <!-- ── Zone 1: Header ── -->
+    <header class="page-header">
+      <p class="label">Quiet Note</p>
+      <h1 class="issue-title">第2号｜整うと、動き出す</h1>
+      <p class="subheadline">強さは、つくるものではなく、現れるもの。</p>
+    </header>
+
+    <hr class="rule rule--header">
+
+    <!-- ── Zone 2: 2-column body ── -->
+    <section class="body-columns">
+      <p>最近、少し楽な日と、なんとなく重い日。差を感じることはないでしょうか。同じように過ごしているのに、動きやすい日と、そうでない日がある。</p>
+      <p>それは、能力の差ではなく、状態の差です。身体は、整っているとき、自然と動きたくなります。</p>
+      <p>無理に頑張らなくても、少し動く。もう少し動く。それが、つながっていく。逆に、整っていないときは、何をしても重くなる。</p>
+      <p>大事なのは、頑張ることではなく、動ける状態をつくること。整うと、動きは軽くなる。軽くなると、自然と積み重なる。強さは、その先に現れます。</p>
+    </section>
+
+    <hr class="rule rule--body">
+
+    <!-- ── Zone 3: Lower 2-block row ── -->
+    <div class="lower-row">
+
+      <section class="lower-block lower-block--habits">
+        <h2 class="block-label">今日からできるQSL習慣</h2>
+        <ol class="habit-list">
+          <li>
+            <span class="habit-num">1｜</span><span class="habit-title">まず、1回止まる</span>
+            <span class="habit-desc">動く前に、3呼吸だけ整える</span>
+          </li>
+          <li>
+            <span class="habit-num">2｜</span><span class="habit-title">軽さを探す</span>
+            <span class="habit-desc">力を入れる前に、「抜ける場所」を感じる</span>
+          </li>
+          <li>
+            <span class="habit-num">3｜</span><span class="habit-title">小さく動く</span>
+            <span class="habit-desc">いきなり頑張らず、まず一歩だけ</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="lower-block lower-block--guidance">
+        <h2 class="block-label">Quiet Guidance</h2>
+        <p class="guidance-text">「やる気が出ない」「動くのが重い」</p>
+        <p class="guidance-text">そんなときは、頑張る前に、整える。</p>
+        <p class="guidance-text">気になる方は、お気軽に声をかけてください。</p>
+        <div class="logo-area">
+          <img src="" alt="ルネサンス" class="logo-img" onerror="this.style.opacity='0'">
+        </div>
+      </section>
+
+    </div>
+
+  </article>
+</body>
+</html>
