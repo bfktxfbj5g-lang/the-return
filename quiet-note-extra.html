@@ -136,14 +136,20 @@
       align-items: center;
     }
 
+    .block-label--soft {
+      font-weight: 400;
+      color: #666;
+      letter-spacing: 0.05em;
+      font-size: 8.5pt;
+    }
+
     .qr-area {
-      width: 38mm;
-      height: 38mm;
-      border: 0.5pt dashed #bbb;
+      width: 30mm;
+      height: 30mm;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 1mm;
+      margin-top: 2mm;
     }
 
     .qr-img {
@@ -153,24 +159,26 @@
       object-fit: contain;
     }
 
+    .qr-caption {
+      font-size: 8pt;
+      font-weight: 400;
+      color: #777;
+      letter-spacing: 0.06em;
+      text-align: center;
+      margin-top: 2.5mm;
+    }
+
     /* ── Page footer ─────────────────────────────────── */
     .page-footer {
       margin-top: auto;
       padding-top: 5mm;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: flex-end;
     }
 
-    .footer-text {
-      font-size: 8pt;
-      font-weight: 400;
-      color: #888;
-      letter-spacing: 0.1em;
-    }
-
     .logo-img {
-      width: 24mm;
+      width: 22mm;
       height: auto;
       display: block;
     }
@@ -230,17 +238,17 @@
       </section>
 
       <section class="lower-block lower-block--qr">
-        <h2 class="block-label" style="width:100%; text-align:center; letter-spacing:0;">　</h2>
+        <h2 class="block-label block-label--soft" style="width:100%; text-align:center;">静かな強さへ戻る。</h2>
         <div class="qr-area">
           <img src="qr.png" alt="" class="qr-img" onerror="this.style.opacity='0'">
         </div>
+        <p class="qr-caption">The Return を受け取る</p>
       </section>
 
     </div>
 
     <!-- ── Page footer ── -->
     <footer class="page-footer">
-      <p class="footer-text">静かな強さへ。</p>
       <img src="logo.jpg" alt="" class="logo-img" onerror="this.style.opacity='0'">
     </footer>
 
