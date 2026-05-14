@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiet Note｜号外</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 15mm 18mm;
+    }
+
+    html, body {
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+                   "Yu Gothic", "Meiryo", sans-serif;
+      font-size: 11pt;
+      line-height: 1.85;
+      color: #1a1a1a;
+      background: #ffffff;
+      font-weight: 500;
+    }
+
+    /* ── Page container ─────────────────────────────── */
+    /* 210mm - 2×18mm = 174mm / 297mm - 2×15mm = 267mm */
+    .page {
+      width: 174mm;
+      min-height: 267mm;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    /* ── Zone 1: Header ─────────────────────────────── */
+    .page-header {
+      padding-bottom: 4mm;
+    }
+
+    .label {
+      font-size: 8pt;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 2.5mm;
+      color: #1a1a1a;
+    }
+
+    .issue-title {
+      font-size: 15pt;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+      margin-bottom: 3mm;
+    }
+
+    .subheadline {
+      font-size: 10.5pt;
+      font-weight: 400;
+      color: #333;
+      letter-spacing: 0.03em;
+      line-height: 1.9;
+    }
+
+    /* ── Rules ──────────────────────────────────────── */
+    .rule {
+      border: none;
+      border-top: 0.5pt solid #1a1a1a;
+      margin: 0;
+    }
+
+    .rule--header { margin-top: 5mm; margin-bottom: 5.5mm; }
+    .rule--body   { margin-top: 5.5mm; margin-bottom: 5.5mm; }
+
+    /* ── Zone 2: 2-column body text ─────────────────── */
+    .body-columns {
+      column-count: 2;
+      column-gap: 7mm;
+      column-fill: balance;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .body-columns p {
+      font-size: 11pt;
+      line-height: 1.85;
+      margin-bottom: 3mm;
+      widows: 2;
+      orphans: 2;
+    }
+
+    .body-columns p:last-child { margin-bottom: 0; }
+
+    /* ── Zone 3: Lower 2-block row ──────────────────── */
+    .lower-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 7mm;
+      align-items: start;
+      margin-top: 0;
+    }
+
+    .lower-block { display: flex; flex-direction: column; }
+
+    .block-label {
+      font-size: 9pt;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin-bottom: 3mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 0.5pt solid #1a1a1a;
+    }
+
+    /* The Return text */
+    .return-text {
+      font-size: 10.5pt;
+      line-height: 1.85;
+      margin-bottom: 2.5mm;
+    }
+
+    .return-text:last-of-type { margin-bottom: 0; }
+
+    /* QR code block */
+    .lower-block--qr {
+      align-items: center;
+    }
+
+    .qr-area {
+      width: 38mm;
+      height: 38mm;
+      border: 0.5pt dashed #bbb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1mm;
+    }
+
+    .qr-img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* ── Page footer ─────────────────────────────────── */
+    .page-footer {
+      margin-top: auto;
+      padding-top: 5mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .footer-text {
+      font-size: 8pt;
+      font-weight: 400;
+      color: #888;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-img {
+      width: 24mm;
+      height: auto;
+      display: block;
+    }
+
+    /* ── Screen-only: paper presentation ────────────── */
+    @media screen {
+      body { background: #e8e8e4; padding: 20mm 0; }
+      .page {
+        background: #ffffff;
+        padding: 15mm 18mm;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+      }
+    }
+
+    /* ── Print ───────────────────────────────────────── */
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { background: #ffffff; padding: 0; margin: 0; }
+      .page { width: 174mm; box-shadow: none; padding: 0; margin: 0; }
+      .body-columns { line-height: 1.8; }
+      .page-header, .lower-block, .lower-row, .page-footer {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+
+    <!-- ── Zone 1: Header ── -->
+    <header class="page-header">
+      <p class="label">Quiet Note</p>
+      <h1 class="issue-title">号外</h1>
+      <p class="subheadline">戻る場所は、<br>外ではなく、<br>自分の中にある。</p>
+    </header>
+
+    <hr class="rule rule--header">
+
+    <!-- ── Zone 2: 2-column body ── -->
+    <section class="body-columns">
+      <p>最近、<br><br>何をやればいいのか分からない。<br>身体も、気持ちも、少し重い。<br><br>そんな声を、<br>よく聞くようになりました。</p>
+      <p>でも、<br><br>本当に必要なのは、<br>新しい刺激ではなく、<br><br>"戻れる場所"<br><br>なのかもしれません。</p>
+      <p>整うと、<br>感覚は少しずつ戻ってきます。</p>
+      <p>強さは、<br>外から足すものではなく、<br><br>もともと持っているものが、<br>通り始めること。</p>
+    </section>
+
+    <hr class="rule rule--body">
+
+    <!-- ── Zone 3: Lower 2-block row ── -->
+    <div class="lower-row">
+
+      <section class="lower-block lower-block--return">
+        <h2 class="block-label">The Return</h2>
+        <p class="return-text">気が向いた日に届く、<br>ほぼ毎日の短いメール。</p>
+        <p class="return-text">コーヒーが冷める前に、読み終わる。<br>でも、少し残る。</p>
+      </section>
+
+      <section class="lower-block lower-block--qr">
+        <h2 class="block-label" style="width:100%; text-align:center; letter-spacing:0;">　</h2>
+        <div class="qr-area">
+          <img src="qr.png" alt="" class="qr-img" onerror="this.style.opacity='0'">
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ── Page footer ── -->
+    <footer class="page-footer">
+      <p class="footer-text">静かな強さへ。</p>
+      <img src="logo.jpg" alt="" class="logo-img" onerror="this.style.opacity='0'">
+    </footer>
+
+  </article>
+</body>
+</html>
