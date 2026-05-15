@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QSL｜Daily Practice ハンドアウト</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 15mm 18mm;
+    }
+
+    html, body {
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+                   "Yu Gothic", "Meiryo", sans-serif;
+      font-size: 11pt;
+      line-height: 1.85;
+      color: #1a1a1a;
+      background: #ffffff;
+      font-weight: 500;
+    }
+
+    /* ── Page container ─────────────────────────────── */
+    /* 210mm - 2×18mm = 174mm / 297mm - 2×15mm = 267mm */
+    .page {
+      width: 174mm;
+      min-height: 267mm;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    /* ── Zone 1: Header ─────────────────────────────── */
+    .page-header {
+      padding-bottom: 4mm;
+    }
+
+    .label {
+      font-size: 7.5pt;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 3mm;
+      color: #999;
+    }
+
+    .issue-title {
+      font-size: 13pt;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.6;
+      margin-bottom: 3mm;
+    }
+
+    .subheadline {
+      font-size: 9.5pt;
+      font-weight: 400;
+      color: #555;
+      letter-spacing: 0.03em;
+      line-height: 1.8;
+    }
+
+    /* ── Rules ──────────────────────────────────────── */
+    .rule {
+      border: none;
+      border-top: 0.5pt solid #1a1a1a;
+      margin: 0;
+    }
+
+    .rule--header { margin-top: 4mm; margin-bottom: 5mm; }
+    .rule--body   { margin-top: 5mm; margin-bottom: 5mm; }
+
+    /* ── Zone 2: 2-column body text ─────────────────── */
+    .body-columns {
+      column-count: 2;
+      column-gap: 7mm;
+      column-fill: balance;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .body-columns p {
+      font-size: 10.5pt;
+      line-height: 1.85;
+      margin-bottom: 2.5mm;
+      widows: 2;
+      orphans: 2;
+    }
+
+    .body-columns p:last-child { margin-bottom: 0; }
+
+    /* ── Zone 3: Lower 2-block row ──────────────────── */
+    .lower-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 7mm;
+      align-items: start;
+    }
+
+    .lower-block { display: flex; flex-direction: column; }
+
+    .block-label {
+      font-size: 9pt;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin-bottom: 3mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 0.5pt solid #1a1a1a;
+    }
+
+    /* Practice list */
+    .practice-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .practice-list li {
+      font-size: 10pt;
+      line-height: 1.75;
+      margin-bottom: 1.5mm;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+
+    .practice-list li::before {
+      content: "・";
+      color: #aaa;
+      font-size: 10pt;
+    }
+
+    .practice-list li:last-child { margin-bottom: 0; }
+
+    /* Guidance block */
+    .guidance-text {
+      font-size: 10.5pt;
+      line-height: 1.85;
+      margin-bottom: 2.5mm;
+    }
+
+    .guidance-text:last-of-type { margin-bottom: 0; }
+
+    /* ── Page footer ─────────────────────────────────── */
+    .page-footer {
+      margin-top: auto;
+      padding-top: 5mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .footer-text {
+      font-size: 8pt;
+      font-weight: 400;
+      color: #888;
+      letter-spacing: 0.06em;
+      line-height: 1.7;
+    }
+
+    .logo-img {
+      width: 22mm;
+      height: auto;
+      display: block;
+    }
+
+    /* ── Screen-only: paper presentation ────────────── */
+    @media screen {
+      body { background: #e8e8e4; padding: 20mm 0; }
+      .page {
+        background: #ffffff;
+        padding: 15mm 18mm;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+      }
+    }
+
+    /* ── Print ───────────────────────────────────────── */
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { background: #ffffff; padding: 0; margin: 0; }
+      .page { width: 174mm; box-shadow: none; padding: 0; margin: 0; }
+      .body-columns { line-height: 1.8; }
+      .page-header, .lower-block, .lower-row, .page-footer {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+
+    <!-- ── Zone 1: Header ── -->
+    <header class="page-header">
+      <p class="label">Quiet Strength Lab</p>
+      <h1 class="issue-title">トレーニングは、<br>マシンを使う時だけではありません。</h1>
+      <p class="subheadline">身体は、<br>"鍛える前"にも変わり始めます。</p>
+    </header>
+
+    <hr class="rule rule--header">
+
+    <!-- ── Zone 2: 2-column body ── -->
+    <section class="body-columns">
+      <p>多くの人は、<br><br>「トレーニング」と聞くと、<br><br>マシン。<br>重り。<br>汗をかくこと。<br>追い込むこと。<br><br>をイメージします。</p>
+      <p>もちろん、それらも大切です。<br><br>でも、<br>身体が変わる入口は、<br>もっと手前にあることもあります。</p>
+      <p>呼吸。<br>姿勢。<br>歩き方。<br>力の抜き方。<br>立ち方。<br><br>こうしたものが整うだけで、<br>身体は思っている以上に軽くなり、<br>動きやすくなります。</p>
+      <p>だからQSLでは、<br><br>"鍛える"前に、<br>まず整えることも大切にしています。<br><br>無理に頑張るのではなく、<br><br>通る状態をつくる。<br><br>すると、<br>身体は少しずつ変わり始めます。</p>
+    </section>
+
+    <hr class="rule rule--body">
+
+    <!-- ── Zone 3: Lower 2-block row ── -->
+    <div class="lower-row">
+
+      <section class="lower-block lower-block--practice">
+        <h2 class="block-label">日常でできるPractice</h2>
+        <ul class="practice-list">
+          <li>鼻呼吸を静かにする</li>
+          <li>動作音を静かにする</li>
+          <li>朝日を浴びる</li>
+          <li>散歩</li>
+          <li>Fast &amp; Loose</li>
+          <li>Standing Meditation</li>
+        </ul>
+      </section>
+
+      <section class="lower-block lower-block--guidance">
+        <h2 class="block-label">Quiet Guidance</h2>
+        <p class="guidance-text">強さは、<br>特別な場所だけで作られるわけではありません。</p>
+        <p class="guidance-text">日常の質も、<br>身体を変えるTrainingです。</p>
+      </section>
+
+    </div>
+
+    <!-- ── Page footer ── -->
+    <footer class="page-footer">
+      <p class="footer-text">Quiet Strength Lab<br>宮城</p>
+      <img src="logo.jpg" alt="" class="logo-img" onerror="this.style.opacity='0'">
+    </footer>
+
+  </article>
+</body>
+</html>
