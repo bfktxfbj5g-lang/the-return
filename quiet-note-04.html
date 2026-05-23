@@ -23,11 +23,13 @@
     }
 
     body {
-      font-family: Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+                   "Yu Gothic", "Meiryo", sans-serif;
       font-size: 11pt;
       line-height: 1.85;
       color: #1a1a1a;
       background: #ffffff;
+      font-weight: 500;
     }
 
     /* ── Page container ─────────────────────────────── */
@@ -65,10 +67,9 @@
 
     .subheadline {
       font-size: 10pt;
-      font-style: italic;
-      font-weight: normal;
+      font-weight: 400;
       color: #444;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
     }
 
     /* ── Rules ──────────────────────────────────────── */
@@ -87,7 +88,7 @@
       column-gap: 7mm;
       column-fill: balance;
       overflow: hidden;
-      flex: 1 0 auto;
+      flex: 0 0 auto;
     }
 
     .body-columns p {
@@ -112,7 +113,7 @@
 
     .block-label {
       font-size: 9pt;
-      font-weight: normal;
+      font-weight: 500;
       letter-spacing: 0.08em;
       margin-bottom: 3mm;
       padding-bottom: 1.5mm;
@@ -144,11 +145,13 @@
       margin-top: 0.3mm;
     }
 
-    /* Guidance block */
+    /* Guidance block — 余韻として残す */
     .guidance-text {
-      font-size: 10.5pt;
-      line-height: 1.85;
-      margin-bottom: 2.5mm;
+      font-size: 10pt;
+      font-weight: 400;
+      line-height: 2.15;
+      margin-bottom: 4mm;
+      color: #333;
     }
 
     .guidance-text:last-of-type { margin-bottom: 0; }
